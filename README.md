@@ -17,7 +17,7 @@ xhost +${hostname}
 ```
 It will allow the connection of GUI from docker container to display windows in native environment.
 
-## Terminal 1
+## Terminal 1 (DOCKER CONTAINER)
 Build and run the docker container
 
 Clone the repo:
