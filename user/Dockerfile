@@ -32,7 +32,7 @@ RUN apt update && apt-get install ros-noetic-joy ros-noetic-teleop-twist-joy \
   ros-noetic-move-base ros-noetic-urdf ros-noetic-xacro \
   ros-noetic-compressed-image-transport ros-noetic-rqt* \
   ros-noetic-gmapping ros-noetic-navigation ros-noetic-interactive-markers \
-  ros-noetic-turtlebot3-msgs ros-noetic-turtlebot3
+  ros-noetic-turtlebot3-msgs ros-noetic-turtlebot3 -y
 
 RUN echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
 
