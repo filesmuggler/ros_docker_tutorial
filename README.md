@@ -37,6 +37,7 @@ docker compose up --build
 It will run Dockerfile building as specified in docker-compose.yml and run autmatically.
 As a result you should see `Attached to running container...`
 
+
 ## Terminal 2 (ROSCORE)
 Make sure `xhost +${hostname}` is executed before proceeding.
 Enter the docker container by:
@@ -55,7 +56,7 @@ roscore
 It will run the core software for ROS.
 
 
-## Terminal 3 (TURTLESIM NODE)
+## Terminal 3 (BEGINNER NODE)
 Make sure `xhost +${hostname}` is executed before proceeding.
 Enter the docker container by:
 ```zsh
@@ -67,27 +68,17 @@ source export.sh
 ```
 Run:
 ```bash
-rosrun turtlesim turtlesim_node
+mkdir -p ~catkin_ws/src
+cd ~catkin_ws/src/
+git clone https://github.com/filesmuggler/ros_docker_tutorial.git
+cd ..
+source /opt/ros/noetic/setup.bash
+catkin_make
+source ~/catkin_ws/devel/setup.bash
+rosrun beginner_tutorials talker.py
 ```
-It will run the node with a nice turtle on the screen.
+It will run the node with talking on the screen.
 
-
-## Terminal 4 (TURTLESIM TELEOP)
-Make sure `xhost +${hostname}` is executed before proceeding.
-Enter the docker container by:
-```zsh
-docker exec -it ros_docker_tutorial-user-ros-1 bash
-```
-Source needed env variables:
-```bash
-source export.sh
-```
-Run:
-```bash
-rosrun turtlesim turtle_teleop_key
-```
-It will run node for controlling the turtle from your keyboard with arrows.
-Press Arrows on your keyboard and see the turtle moving on the screen.
 
 
 ## Terminal 5 (ROSTOPIC TOOLS)
@@ -104,7 +95,15 @@ Run:
 ```bash
 rostopic list
 ```
-It will print available topics. You can see `/turtle1/pose` which is responsible for holding info about position of the turtle on the screen.
+It will print available topics. 
+
+
+
+---
+OUTDATED - check new topics
+
+
+You can see `/turtle1/pose` which is responsible for holding info about position of the turtle on the screen.
 Try:
 ```bash
 rostopic echo /turtle1/pose
