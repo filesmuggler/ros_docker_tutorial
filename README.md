@@ -9,6 +9,8 @@ Install docker engine and docker compose plugin from [this site](https://docs.do
 
 Install [XQuartz](https://www.xquartz.org/), restart computer and make sure it's on.
 
+Set network forwarding to xquartz.
+
 ## Use
 
 Open 5 terminal shells and type in each 
